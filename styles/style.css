@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 10px;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+}
+.canvas {
+    width: 50rem;
+    height: 50rem;
+    margin: 50px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+.canvasElement {
+    width: 4rem;
+    height: 4rem;
+    border: 1px solid black;
+    flex: 6.25%;
+}
+
+/*set default background color when hover over any canvas element(squre box)*/
+
+.canvasElementHover {
+    background-color: black;
+}
+
+/* reset canvas background color when reset button clicked*/
+
+.canvasElementReset {
+    background-color: white;
+}
