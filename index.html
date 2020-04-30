@@ -9,7 +9,14 @@
 <body>
     <div class="container">
         <header>
-            <button class="reset">Reset Canvas</button>
+            <div class="wraper">
+                <button class="reset">Reset Canvas</button>
+                <div class="canvasSize">
+                    <label for="canvasSize">Canvas Size: </label>
+                    <input type="number" id="canvsSize" name="canvasSize" min="1">
+                </div>
+                <button class="randomColor">Random Color</button>
+            </div>
         </header>
         <main class="canvas"></main>
     </div>

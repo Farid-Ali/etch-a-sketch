@@ -1,18 +1,75 @@
+/* Global css */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    outline: none;
+}
+
+html,
+body {
     font-size: 10px;
+}
+
+button {
+    cursor: pointer;
 }
 
 .container {
     width: 100%;
     height: 100vh;
 }
+
+header {
+    width: 100%;
+    height: 60px;
+    background-color: teal;
+
+}
+
+.wraper {
+    width: 50rem;
+    height: 60px;
+    margin: auto;
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header button,
+.canvasSize {
+    font-size: 1.5rem;
+    height: 3rem;
+    flex: 1;
+    background-color: tomato;
+    border: 0;
+    border-radius: 5px;
+}
+
+.canvasSize {
+    margin: 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.canvasSize input {
+    width: 5rem;
+    height: 2.5rem;
+    font-size: 1.5rem;
+    margin-left: 10px;
+    border-radius: 5px;
+    border: 0;
+}
+
+
 .canvas {
     width: 50rem;
     height: 50rem;
-    margin: 50px auto;
+    margin: 30px auto;
     display: flex;
     justify-content: center;
     align-items: center;

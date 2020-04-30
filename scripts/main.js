@@ -33,3 +33,5 @@ function resetCanvas() {
 const reset = document.querySelector('.reset');
 
 reset.addEventListener('click', resetCanvas);
+
+/*set random background color when hover over any canvas element(squre box)*/
