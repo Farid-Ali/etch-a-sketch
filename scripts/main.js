@@ -16,18 +16,19 @@ const canvasElement = document.querySelectorAll('.canvasElement');
 canvasElement.forEach(element => {
     element.addEventListener('mouseover', () => {
        element.classList.add('canvasElementHover');
-       element.classList.remove('canvasElementReset');//for removing background color reset on hover//
     })
 });
 
-/* reset canvas background color when reset button clicked*/
+/* reset canvas background color to white when reset button clicked*/
 
 function resetCanvas() {
-    const canvasElement = document.querySelectorAll('.canvas > div');
-    
+    const canvasElement = document.querySelectorAll('.canvasElement');
+
     canvasElement.forEach(element => {
-        element.classList.add('canvasElementReset');
-    })
+        element.addEventListener('mouseover', () => {
+            element.style.backgroundColor = 'white';
+        })
+    });
 }
 
 const reset = document.querySelector('.reset');
@@ -35,3 +36,24 @@ const reset = document.querySelector('.reset');
 reset.addEventListener('click', resetCanvas);
 
 /*set random background color when hover over any canvas element(squre box)*/
+
+//generate random color//
+
+function randomColor() {
+    const canvasElement = document.querySelectorAll('.canvasElement');
+
+    canvasElement.forEach(element => {
+        element.addEventListener('mouseover', () => {
+            const color = Math.floor(Math.random() * 16777215).toString(16);
+            element.style.backgroundColor = "#" + color;
+        })
+    });
+   
+}
+
+//set random color when random color button clicked//
+
+const SetRandomColor = document.querySelector('.randomColor');
+
+SetRandomColor.addEventListener('click', randomColor); 
+
