@@ -1,13 +1,50 @@
-/*creat 16*16 canvas element(inital state)*/
 
-const canvas = document.querySelector('.canvas');
-for (let j = 0; j < 16; j++) {
-    for (let i = 0; i < 16; i++) {
-        const canvasElement = document.createElement('div');
-        canvasElement.classList.add('canvasElement');
-        canvas.appendChild(canvasElement);
+/* function for seting user selected canvas size*/
+
+function canvasSize() {
+    //returns user selected value//
+    let canvasSizeInputValue = 16;
+    let canvasSizeInput = document.querySelector('#canvasSizeInput');
+
+    canvasSizeInput.addEventListener('change', (e) => {
+        canvasSizeInputValue = e.target.value;
+        //update canvas size when user input changed//
+        updateCanvasSize();
+
+        //sets default background color when hover over any canvas element(squre box) after user input changed//
+
+        const canvasElement = document.querySelectorAll('.canvasElement');
+
+        canvasElement.forEach(element => {
+            element.addEventListener('mouseover', () => {
+                element.classList.add('canvasElementHover');
+    })
+});
+    })
+    return  canvasSizeInputValue;   
+}
+
+/* function for updateing canvas size*/
+
+function updateCanvasSize() {
+
+    let canvasSizeValue = canvasSize();
+    console.log(canvasSizeValue);
+    const canvas = document.querySelector('.canvas');
+
+    for (let i = 0; i < canvasSizeValue; i++) {
+        for (let j = 0; j < canvasSizeValue; j++) {
+            const canvasElement = document.createElement('div');
+            canvasElement.classList.add('canvasElement');
+            canvasElement.style.cssText = 'width: 30px; height: 30px; border: 1px solid black';
+            canvas.appendChild(canvasElement);
+        }
     }
 }
+
+/*creat 16*16 canvas element(inital state)*/
+
+updateCanvasSize();
 
 /*set default background color when hover over any canvas element(squre box)*/
 
@@ -56,4 +93,7 @@ function randomColor() {
 const SetRandomColor = document.querySelector('.randomColor');
 
 SetRandomColor.addEventListener('click', randomColor); 
+
+
+
 

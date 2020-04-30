@@ -63,6 +63,7 @@ header button,
     margin-left: 10px;
     border-radius: 5px;
     border: 0;
+    padding-left: 8px;
 }
 
 
@@ -77,12 +78,12 @@ header button,
 }
 
 
-.canvasElement {
-    width: 4rem;
-    height: 4rem;
+/**.canvasElement {
+    width: 6.25%;
+    height: 6.25%;
     border: 1px solid black;
     flex: 6.25%;
-}
+}*/
 
 /*set default background color when hover over any canvas element(squre box)*/
 
