@@ -1,13 +1,20 @@
 
+let canvasSizeInputValue = 16;
+
 /* function for seting user selected canvas size*/
 
-function canvasSize() {
-    //returns user selected value//
-    let canvasSizeInputValue = 16;
+    
     let canvasSizeInput = document.querySelector('#canvasSizeInput');
 
     canvasSizeInput.addEventListener('change', (e) => {
+        //returns user selected value//
         canvasSizeInputValue = e.target.value;
+
+        //remove previous canvas when canvas size is set manually//
+
+        deleteChild();
+
+        
         //update canvas size when user input changed//
         updateCanvasSize();
 
@@ -18,29 +25,30 @@ function canvasSize() {
         canvasElement.forEach(element => {
             element.addEventListener('mouseover', () => {
                 element.classList.add('canvasElementHover');
+            })
+        })
+        return;
     })
-});
-    })
-    return  canvasSizeInputValue;   
-}
+
 
 /* function for updateing canvas size*/
 
 function updateCanvasSize() {
 
-    let canvasSizeValue = canvasSize();
-    console.log(canvasSizeValue);
+    console.log(canvasSizeInputValue);
     const canvas = document.querySelector('.canvas');
+    const cellSize = canvas.clientWidth / canvasSizeInputValue;
 
-    for (let i = 0; i < canvasSizeValue; i++) {
-        for (let j = 0; j < canvasSizeValue; j++) {
+    for (let i = 0; i < canvasSizeInputValue; i++) {
+        for (let j = 0; j < canvasSizeInputValue; j++) {
             const canvasElement = document.createElement('div');
             canvasElement.classList.add('canvasElement');
-            canvasElement.style.cssText = 'width: 30px; height: 30px; border: 1px solid black';
+            canvasElement.style.cssText = `width: ${cellSize}px; height: ${cellSize}px; border: .1px solid #585863`;
             canvas.appendChild(canvasElement);
         }
     }
 }
+
 
 /*creat 16*16 canvas element(inital state)*/
 
@@ -92,8 +100,20 @@ function randomColor() {
 
 const SetRandomColor = document.querySelector('.randomColor');
 
-SetRandomColor.addEventListener('click', randomColor); 
+SetRandomColor.addEventListener('click', randomColor);
 
+//function for remove previous canvas when canvas size is set manually//
+
+function deleteChild() { 
+    const canvas = document.querySelector(".canvas"); 
+    
+    //e.firstElementChild can be used. 
+    let child = canvas.lastElementChild;  
+    while (child) { 
+        canvas.removeChild(child); 
+        child = canvas.lastElementChild; 
+    } 
+} 
 
 
 
