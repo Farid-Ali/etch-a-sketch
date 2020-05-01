@@ -15,6 +15,7 @@ body {
 button {
     cursor: pointer;
 }
+/* main content blocks styles */
 
 .container {
     width: 100%;
@@ -27,6 +28,7 @@ header {
     background-color: teal;
 
 }
+/* Styles for elements (buttons, input etc.) */
 
 .wraper {
     width: 50rem;
@@ -66,6 +68,7 @@ header button,
     padding-left: 8px;
 }
 
+/* styles for canvas and its elements */
 
 .canvas {
     width: 50rem;
@@ -75,6 +78,8 @@ header button,
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    border: 10px solid tomato;
+    border-radius: 10px;
 }
 
 /*set default background color when hover over any canvas element(squre box)*/

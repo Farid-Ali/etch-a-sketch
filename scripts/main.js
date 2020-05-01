@@ -1,25 +1,25 @@
-
 let canvasSizeInputValue = 16;
 
 /* function for seting user selected canvas size*/
 
-    
-    let canvasSizeInput = document.querySelector('#canvasSizeInput');
+let canvasSizeInput = document.querySelector('#canvasSizeInput');
 
     canvasSizeInput.addEventListener('change', (e) => {
         //returns user selected value//
         canvasSizeInputValue = e.target.value;
 
+        //alert user to set the value in range if input is too low or too high//
+        if (canvasSizeInputValue > 100 || canvasSizeInputValue < 2) {
+            alert('Please insert a value between 2 - 100');
+        }
+
         //remove previous canvas when canvas size is set manually//
-
         deleteChild();
-
         
         //update canvas size when user input changed//
         updateCanvasSize();
 
         //sets default background color when hover over any canvas element(squre box) after user input changed//
-
         const canvasElement = document.querySelectorAll('.canvasElement');
 
         canvasElement.forEach(element => {
@@ -34,17 +34,19 @@ let canvasSizeInputValue = 16;
 /* function for updateing canvas size*/
 
 function updateCanvasSize() {
-
-    console.log(canvasSizeInputValue);
     const canvas = document.querySelector('.canvas');
+    //sets ceel size//
     const cellSize = canvas.clientWidth / canvasSizeInputValue;
 
-    for (let i = 0; i < canvasSizeInputValue; i++) {
-        for (let j = 0; j < canvasSizeInputValue; j++) {
-            const canvasElement = document.createElement('div');
-            canvasElement.classList.add('canvasElement');
-            canvasElement.style.cssText = `width: ${cellSize}px; height: ${cellSize}px; border: .1px solid #585863`;
-            canvas.appendChild(canvasElement);
+    //creates cells//
+    if (canvasSizeInputValue <= 100 && canvasSizeInputValue >= 2) {
+        for (let i = 0; i < canvasSizeInputValue; i++) {
+            for (let j = 0; j < canvasSizeInputValue; j++) {
+                const canvasElement = document.createElement('div');
+                canvasElement.classList.add('canvasElement');
+                canvasElement.style.cssText = `width: ${cellSize}px; height: ${cellSize}px; border: .1px solid #585863`;
+                canvas.appendChild(canvasElement);
+            }
         }
     }
 }
@@ -83,7 +85,6 @@ reset.addEventListener('click', resetCanvas);
 /*set random background color when hover over any canvas element(squre box)*/
 
 //generate random color//
-
 function randomColor() {
     const canvasElement = document.querySelectorAll('.canvasElement');
 
@@ -97,17 +98,16 @@ function randomColor() {
 }
 
 //set random color when random color button clicked//
-
 const SetRandomColor = document.querySelector('.randomColor');
 
 SetRandomColor.addEventListener('click', randomColor);
 
-//function for remove previous canvas when canvas size is set manually//
+/*function for remove previous canvas when canvas size is set manually*/
 
 function deleteChild() { 
     const canvas = document.querySelector(".canvas"); 
     
-    //e.firstElementChild can be used. 
+    //canvas.firstElementChild can be used. 
     let child = canvas.lastElementChild;  
     while (child) { 
         canvas.removeChild(child); 
